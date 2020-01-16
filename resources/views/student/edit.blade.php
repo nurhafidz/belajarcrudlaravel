@@ -1,6 +1,6 @@
 @extends('layout/main')
 
-@Section ('title','Tambah Siswa')
+@Section ('title','Edit Siswa')
 
 @section('nav')
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
@@ -30,25 +30,27 @@
 @section('content')
     <div class="container mt-5">
         <div class="col-8">
-            <h1>Tambah Siswa</h1>
-            <form method="post" action="/student">
+            <h1>Edit Siswa</h1>
+             <form method="post" action="/student/{{$student->id}}">
+                @method('patch')
                 @csrf
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{old('nama')}}">
+                    <input hidden type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="id">
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{$student->nama}}">
                     @error ('nama')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
                 <div class="form-group">
                     <label for="NISN">NISN</label>
-                    <input type="text" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{old('nisn')}}">
+                    <input type="text" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{$student->nisn}}">
                     @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
                 </div>
                 <div class="form-group">
                     <label for="Alamat">Alamat</label>
-                    <textarea type="text" class="form-control " id="alamat" placeholder="Masukkan Alamat" name="alamat"></textarea>
-                    
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan Alamat" name="alamat" value="{{$student->alamat}}">
+                    @error ('alamat')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
-                <button class="btn btn-primary" type="submit">Simpan</button>
+                <button class="btn btn-primary" type="submit">Ubah Data</button>
             </form>
         </div>
     </div>

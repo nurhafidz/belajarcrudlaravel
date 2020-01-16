@@ -53,8 +53,7 @@
               <td>{{$s->nisn}}</td>
               <td>{{$s->alamat}}</td>
               <td>
-                  <a href="/student/1" class="btn btn-success">edit</a>
-                  <a href="#" class="btn btn-danger">hapus</a>
+                <a href="/student/{{$s->id}}" class="btn btn-success">detail</a>
               </td>
               </tr>
               @endforeach

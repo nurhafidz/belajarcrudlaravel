@@ -42,7 +42,11 @@ class StudentController extends Controller
         $siswa->nisn=$request->nisn;
         $siswa->alamat=$request->alamat;
 
-        
+        $request->validate([
+            'nama'=>'required',
+            'nisn'=>'required|size:5',
+            
+        ]);
 
         $siswa->save();
 
@@ -59,7 +63,8 @@ class StudentController extends Controller
      */
     public function show(student $student)
     {
-        return view('student.show',compact($student));
+        
+        return view('student/show',['student'=>$student]);
     }
 
     /**
@@ -70,7 +75,7 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        //
+        return view('student.edit',['student'=>$student]);
     }
 
     /**
@@ -82,7 +87,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, student $student)
     {
-        //
+        Student::where('id',$student->id)
+            ->update([
+                'nama'=>$request->nama,
+                'nisn'=>$request->nisn,
+                'alamat'=>$request->alamat,
+                
+            ]);
+            return redirect('/student')->with('status','Data Siswa berhasil diubah');
     }
 
     /**
@@ -93,6 +105,8 @@ class StudentController extends Controller
      */
     public function destroy(student $student)
     {
-        //
+        
+        Student::destroy($student->id);
+        return redirect('/student')->with('status','Data Siswa berhasil dihapus');
     }
 }
