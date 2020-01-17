@@ -1,10 +1,13 @@
 
-@extends('layout/main')
+@extends('layout/main2')
  
 @section('content')
- 
-    <h2>Register</h2>
-    <form method="POST" action="/register">
+
+<div class="container-login100" style="background-image: url({{url('img/bg1.png')}});">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+    <h2 class="text-center">Register</h2>
+    
+    <form method="POST" class="login100-form validate-form" action="/register">
         @csrf
         <div class="form-group">
             <label for="name">Name:</label>
@@ -21,10 +24,11 @@
             <input type="password" class="form-control" id="password" name="password">
         </div>
  
-        <div class="form-group">
+        <div class="form-group" >
             <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
         </div>
         
     </form>
+</div>
  
 @endsection

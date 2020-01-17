@@ -40,7 +40,7 @@
                 <p class="card-text">{{$student->alamat}}</p>
                 <a href="{{$student->id}}/edit" class="btn btn-success text-light" class="card-link">Edit</a>
                 <form action="{{$student->id}}" method="POST" class="d-inline">
-                    @method('delete')
+                    {{ method_field('delete') }}
                     @csrf
                     <button class="btn btn-danger " type="submit" class="card-link">Hapus</button>
                 </form>

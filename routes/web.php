@@ -23,10 +23,9 @@ Route::group(['middleware'=>'auth'] ,function(){
 
     Route::get('/student', 'StudentController@index');
     Route::get('/student/create', 'StudentController@create');
-
     Route::get('/student/{student}', 'StudentController@show');
     Route::post('/student', 'StudentController@store');
-    Route::delete('/student/{student}', 'StudentController@destroy');
     Route::get('/student/{student}/edit', 'StudentController@edit');
     Route::patch('/student/{student}', 'StudentController@update');
+    Route::delete('/student/{student}', 'StudentController@destroy');
 });
