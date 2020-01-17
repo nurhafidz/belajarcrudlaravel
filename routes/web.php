@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/register', 'RegistrationController@create');
+Route::post('register', 'RegistrationController@store');
 
 Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
