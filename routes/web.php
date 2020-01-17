@@ -12,14 +12,19 @@
 */
 
 
+Route::get('/login','AuthController@login')->name('login');
+Route::post('/postlogin','AuthController@postlogin');
+Route::get('logout','AuthController@logout');
 
-Route::get('/','PagesController@home');
+Route::group(['middleware'=>'auth'] ,function(){
+    Route::get('/', 'PagesController@home');
 
-Route::get('/student','StudentController@index');
-Route::get('/student/create','StudentController@create');
+    Route::get('/student', 'StudentController@index');
+    Route::get('/student/create', 'StudentController@create');
 
-Route::get('/student/{student}','StudentController@show');
-Route::post('/student','StudentController@store');
-Route::delete('/student/{student}','StudentController@destroy');
-Route::get('/student/{student}/edit','StudentController@edit');
-Route::patch('/student/{student}','StudentController@update');
+    Route::get('/student/{student}', 'StudentController@show');
+    Route::post('/student', 'StudentController@store');
+    Route::delete('/student/{student}', 'StudentController@destroy');
+    Route::get('/student/{student}/edit', 'StudentController@edit');
+    Route::patch('/student/{student}', 'StudentController@update');
+});
