@@ -26,3 +26,14 @@
         </div>
     </nav>
 @endsection 
+
+@section('content')
+    
+        <img src="{{url('img/bg2.jpg')}}" alt="Snow" style="width:100%;">
+       
+        <div class="centered text-center" >
+            <h1 class="text-light">Selamat datang</h1>
+            <h1 class="text-light">{{auth()->user()->name}}</h1>
+        </div>
+    
+@endsection
