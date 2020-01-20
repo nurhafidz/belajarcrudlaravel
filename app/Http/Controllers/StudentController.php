@@ -93,6 +93,12 @@ class StudentController extends Controller
                 'nisn'=>$request->nisn,
                 'alamat'=>$request->alamat,
                 
+                
+            ]);
+            $request->validate([
+                'nama'=>'required',
+                'nisn'=>'required|size:5',
+                
             ]);
             return redirect('/student')->with('status','Data Siswa berhasil diubah');
     }

@@ -17,6 +17,9 @@
             <li class="nav-item active">
             <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/user')}}">User</a>
+            </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -42,7 +45,7 @@
                 </div>
                 <div class="form-group">
                     <label for="NISN">NISN</label>
-                    <input type="text" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{$student->nisn}}">
+                    <input type="number" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{$student->nisn}}">
                     @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
                 </div>
                 <div class="form-group">

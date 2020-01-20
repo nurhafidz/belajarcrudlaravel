@@ -1,6 +1,6 @@
-@extends('layout/main')
+@extends('layout.main')
 
-@Section ('title','home')
+@Section ('title','User')
 
 @section('nav')
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
@@ -11,14 +11,14 @@
     
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/user')}}">User</a>
+            <a class="nav-link active" href="{{url('/user')}}">User</a>
             </li>
             
         </ul>
@@ -30,13 +30,39 @@
     </nav>
 @endsection 
 
+
+
 @section('content')
-    
-        <img src="{{url('img/bg2.jpg')}}" alt="Snow" style="width:100%;">
-       
-        <div class="centered text-center" >
-            <h1 class="text-light">Selamat datang</h1>
-            <h1 class="text-light">{{auth()->user()->name}}</h1>
-        </div>
-    
-@endsection
+<div class="container mt-5">
+        <table class="table table-striped" id="users-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+        </table>
+    @stop
+
+    @push('scripts')
+    <script>
+    $(function() {
+        $('#users-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: 'user/json',
+            columns: [
+                { data: 'id', name: 'id' },
+                { data: 'name', name: 'name' },
+                { data: 'email', name: 'email' },
+                { data: 'created_at', name: 'created_at' },
+                { data: 'updated_at', name: 'updated_at' }
+            ]
+        });
+    });
+    </script>
+</div>
+@endpush

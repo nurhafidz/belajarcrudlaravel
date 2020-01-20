@@ -20,6 +20,8 @@ Route::get('logout','AuthController@logout');
 
 Route::group(['middleware'=>'auth'] ,function(){
     Route::get('/', 'PagesController@home');
+    Route::get('/user','PagesController@index');
+    Route::get('/user/json','PagesController@json');
 
     Route::get('/student', 'StudentController@index');
     Route::get('/student/create', 'StudentController@create');
