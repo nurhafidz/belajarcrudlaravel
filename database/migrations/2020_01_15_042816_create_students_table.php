@@ -18,6 +18,8 @@ class CreateStudentsTable extends Migration
             $table->string('nama');
             $table->char('nisn', 15);
             $table->string('alamat');
+            $table->integer('motors_id');
+            $table->char('no_pol');
             $table->timestamps();
         });
     }

@@ -14,11 +14,9 @@
             <li class="nav-item ">
             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
-            </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/user')}}">User</a>
+                <a class="nav-link active" href="{{url('/user')}}">Daftar Siswa</a>
             </li>
             
         </ul>
@@ -42,11 +40,34 @@
                 <h6 class="card-text">alamat:</h6>
                 <p class="card-text">{{$student->alamat}}</p>
                 <a href="{{$student->id}}/edit" class="btn btn-success text-light" class="card-link">Edit</a>
-                <form action="{{$student->id}}" method="POST" class="d-inline">
-                    {{ method_field('delete') }}
-                    @csrf
-                    <button class="btn btn-danger " type="submit" class="card-link">Hapus</button>
-                </form>
+                <div id='modal' class="d-inline">
+                    <button class="btn btn-danger " data-toggle="modal" data-target="#exampleModal"  class="card-link">Hapus</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">PEMBERITAHUAN</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{url('img/danger.svg')}}" style="height:50px;" class="mb-2" >
+                                <p>Apakah Anda Ingin Mengapus data {{$student->nama}}</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">TIDAK</button>
+                            <form action="{{$student->id}}" method="POST" class="d-inline">
+                                {{ method_field('delete') }}
+                                @csrf
+                            <button type="submit" class="btn btn-danger" type="submit">YA</button>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
           </div>
     </div>

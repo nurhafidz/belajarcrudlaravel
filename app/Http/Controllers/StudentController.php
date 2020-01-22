@@ -51,7 +51,7 @@ class StudentController extends Controller
         $siswa->save();
 
 
-        return redirect('/student')->with('status','Data Siswa berhasil ditambahkan');
+        return redirect('/user')->with('status','Data Siswa berhasil ditambahkan');
 
     }
 
@@ -100,7 +100,7 @@ class StudentController extends Controller
                 'nisn'=>'required|size:5',
                 
             ]);
-            return redirect('/student')->with('status','Data Siswa berhasil diubah');
+            return redirect('/user')->with('status','Data Siswa berhasil diubah');
     }
 
     /**
@@ -113,6 +113,6 @@ class StudentController extends Controller
     {
         
         Student::destroy($student->id);
-        return redirect('/student')->with('status','Data Siswa berhasil dihapus');
+        return redirect('/user')->with('status','Data Siswa berhasil dihapus');
     }
 }

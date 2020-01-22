@@ -18,7 +18,7 @@
             <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/user')}}">User</a>
+             <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
           </li>
             
         </ul>
@@ -45,6 +45,7 @@
                 <th scope="col">Nama</th>
                 <th scope="col">NISN</th>
                 <th scope="col">Alamat</th>
+                <th scope="col">ken</th>
                 <th scope="col">Keterangan</th>
               </tr>
             </thead>
@@ -55,6 +56,7 @@
               <td>{{$s->nama}}</td>
               <td>{{$s->nisn}}</td>
               <td>{{$s->alamat}}</td>
+              <td>{{$s->motors->nama_kendaraan}}</td>
               <td>
                 <a href="/student/{{$s->id}}" class="btn btn-success">detail</a>
               </td>

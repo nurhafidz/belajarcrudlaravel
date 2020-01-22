@@ -14,11 +14,8 @@
             <li class="nav-item ">
             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
-            </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/user')}}">User</a>
+                <a class="nav-link active" href="{{url('/user')}}">Daftar Siswa</a>
             </li>
             
         </ul>
@@ -53,7 +50,7 @@
                     <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan Alamat" name="alamat" value="{{$student->alamat}}">
                     @error ('alamat')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
-                <button class="btn btn-primary" type="submit">Ubah Data</button>
+                <button class="btn btn-primary"  type="submit">Ubah Data</button>
             </form>
         </div>
     </div>
