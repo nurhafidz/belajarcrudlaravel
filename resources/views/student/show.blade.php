@@ -15,9 +15,12 @@
             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link active" href="{{url('/user')}}">Daftar Siswa</a>
-            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
+                </li>
+                <li class="nav-item">
+                 <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
+              </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">
