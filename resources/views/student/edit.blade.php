@@ -20,6 +20,9 @@
                 <li class="nav-item">
                  <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{url('/motors')}}">Daftar Kendaraan</a>
+           </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -47,6 +50,17 @@
                     <label for="NISN">NISN</label>
                     <input type="number" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{$student->nisn}}">
                     @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
+                </div>
+                <div class="form-group">
+                    <label for="motors_id">Kendaraan</label>
+                    <select name="motors_id" class="form-control @error('motors_id') is-invalid @enderror" >
+                        @foreach ($motors as $m)
+                        <option  value="{{$m->id}}">{{$m->nama_kendaraan}}</option>
+                        @endforeach
+                    </select>
+                    <a href="/motors/create">Buat Kendaraan</a>
+                    
+                    @error ('motors_id')<div class="invalin-feedback">{{ $message}}</div>@enderror 
                 </div>
                 <div class="form-group">
                     <label for="Alamat">Alamat</label>

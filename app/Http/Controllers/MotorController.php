@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Motors;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MotorController extends Controller
 {
@@ -14,7 +15,8 @@ class MotorController extends Controller
      */
     public function index()
     {
-        //
+        $motors= motors::all();
+        return view('motors.index',compact('motors'));
     }
 
     /**
@@ -24,7 +26,7 @@ class MotorController extends Controller
      */
     public function create()
     {
-        //
+        return view('motors.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class MotorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $motors = new Motors;
+        $motors->nama_kendaraan=$request->nama_kendaraan;
+        $motors->warna=$request->warna;
+
+        $request->validate([
+            'nama_kendaraan'=>'required',
+            'warna'=>'required',
+            
+        ]);
+
+        $motors->save();
+
+
+        return redirect('/motors')->with('status','Data Kendaraan Siswa berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +61,7 @@ class MotorController extends Controller
      */
     public function show(Motors $motors)
     {
-        //
+        return view('motors/show',['motors'=>$motors]);
     }
 
     /**
@@ -57,7 +72,7 @@ class MotorController extends Controller
      */
     public function edit(Motors $motors)
     {
-        //
+        return view('motors.edit',['motors'=>$motors]);
     }
 
     /**
@@ -69,7 +84,20 @@ class MotorController extends Controller
      */
     public function update(Request $request, Motors $motors)
     {
-        //
+        Motors::where('id',$motors->id)
+            ->update([
+                'nama_kendaraan'=>$request->nama_kendaraan,
+                'warna'=>$request->warna,
+                
+                
+                
+            ]);
+            $request->validate([
+                'nama_kendaraan'=>'required',
+                'warna'=>'required',
+                
+            ]);
+            return redirect('/motors')->with('status','Data Kendaraan Siswa berhasil diubah');
     }
 
     /**
@@ -80,6 +108,7 @@ class MotorController extends Controller
      */
     public function destroy(Motors $motors)
     {
-        //
+        Motors::destroy($motors->id);
+        return redirect('/motors')->with('status','Data Kendaraan Siswa berhasil dihapus');
     }
 }

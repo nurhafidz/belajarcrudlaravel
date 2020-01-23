@@ -14,12 +14,15 @@
             <li class="nav-item ">
             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
             <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link " href="{{url('/motors')}}">Daftar Kendaraan</a>
+           </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -33,23 +36,18 @@
 @section('content')
     <div class="container mt-5">
         <div class="col-8">
-            <h1>Tambah Siswa</h1>
-            <form method="post" action="/student">
+            <h1>Tambah Kendaraan Siswa</h1>
+            <form method="post" action="/motors">
                 @csrf
                 <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{old('nama')}}">
-                    @error ('nama')<div class="invalin-feedback">{{ $message}}</div>@enderror
+                    <label for="nama">Nama Kendaraan</label>
+                    <input type="text" class="form-control @error('nama_kendaraan') is-invalid @enderror" id="nama_kendaraan" placeholder="Masukkan Nama Kendaraan" name="nama_kendaraan" value="{{old('nama_kendaraan')}}">
+                    @error ('nama_kendaraan')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
                 <div class="form-group">
-                    <label for="NISN">NISN</label>
-                    <input type="number" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{old('nisn')}}">
+                    <label for="NISN">Warna Kendaraan</label>
+                    <input type="text" class="form-control @error('warna') is-invalid @enderror" id="warna" placeholder="Masukkan warna" name="warna" value="{{old('warna')}}">
                     @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
-                </div>
-                <div class="form-group">
-                    <label for="Alamat">Alamat</label>
-                    <textarea type="text" class="form-control " id="alamat" placeholder="Masukkan Alamat" name="alamat"></textarea>
-                    
                 </div>
                 <button class="btn btn-primary" type="submit">Simpan</button>
             </form>

@@ -16,7 +16,6 @@ class CreateMotorsTable extends Migration
         Schema::create('motors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_kendaraan');
-            $table->char('no_pol', 8)->unique();
             $table->string('warna');
             $table->timestamps();
         });

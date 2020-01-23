@@ -19,6 +19,9 @@
             <li class="nav-item">
             <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{url('/motors')}}">Daftar Kendaraan</a>
+           </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">

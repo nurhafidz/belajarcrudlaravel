@@ -14,12 +14,15 @@
             <li class="nav-item ">
             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
             <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
             </li>
             <li class="nav-item">
              <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link " href="{{url('/motors')}}">Daftar Kendaraan</a>
+       </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -32,7 +35,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1>Daftar Siswa</h1>
+        <h1>Daftar Kendaraan Siswa</h1>
         @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
@@ -43,25 +46,25 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nama</th>
-                <th scope="col">NISN</th>
-                <th scope="col">Alamat</th>
+                <th scope="col">Warna</th>
+                
                 <th scope="col">Keterangan</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($students as $s)
+                @foreach ($motors as $m)
               <tr> 
               <th scope="row">{{$loop->iteration}}</th>
-              <td>{{$s->nama}}</td>
-              <td>{{$s->nisn}}</td>
-              <td>{{$s->alamat}}</td>
+              <td>{{$m->nama_kendaraan}}</td>
+              <td>{{$m->warna}}</td>
+              
               <td>
-                <a href="/student/{{$s->id}}" class="btn btn-success">detail</a>
+                <a href="/motors/{{$m->id}}" class="btn btn-success">detail</a>
               </td>
               </tr>
               @endforeach
             </tbody>
           </table>
-          <a href="/student/create"  type="button" class="btn btn-primary">Tambah Siswa</a>
+          <a href="/motors/create"  type="button" class="btn btn-primary">Tambah Kendaraan Siswa</a>
     </div>
 @endsection

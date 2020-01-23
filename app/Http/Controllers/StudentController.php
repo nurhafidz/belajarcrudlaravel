@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\student;
+use App\Motors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('student.create');
+        $motors= motors::all();
+        return view('student.create',compact('motors'));
+        
     }
 
     /**
@@ -40,18 +43,21 @@ class StudentController extends Controller
         $siswa = new Student;
         $siswa->nama=$request->nama;
         $siswa->nisn=$request->nisn;
+        $siswa->motors_id=$request->motors_id;
         $siswa->alamat=$request->alamat;
+        
 
         $request->validate([
             'nama'=>'required',
             'nisn'=>'required|size:5',
+            'nama'=>'required',
             
         ]);
 
         $siswa->save();
 
 
-        return redirect('/user')->with('status','Data Siswa berhasil ditambahkan');
+        return redirect('/student')->with('status','Data Siswa berhasil ditambahkan');
 
     }
 
@@ -75,7 +81,10 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        return view('student.edit',['student'=>$student]);
+        $motors= motors::all();
+
+        return view('student.edit',['student'=>$student],compact('motors'));
+        
     }
 
     /**
@@ -92,15 +101,17 @@ class StudentController extends Controller
                 'nama'=>$request->nama,
                 'nisn'=>$request->nisn,
                 'alamat'=>$request->alamat,
+                'motors_id'=>$request->motors_id,
                 
                 
             ]);
             $request->validate([
                 'nama'=>'required',
                 'nisn'=>'required|size:5',
+                'motors_id=>required',
                 
             ]);
-            return redirect('/user')->with('status','Data Siswa berhasil diubah');
+            return redirect('/student')->with('status','Data Siswa berhasil diubah');
     }
 
     /**

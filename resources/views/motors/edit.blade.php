@@ -20,7 +20,9 @@
             <li class="nav-item">
                 <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
             </li>
-            
+            <li class="nav-item active">
+                <a class="nav-link " href="{{url('/motors')}}">Daftar Kendaraan</a>
+           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             
@@ -34,24 +36,18 @@
     <div class="container mt-5">
         <div class="col-8">
             <h1>Edit Siswa</h1>
-             <form method="post" action="/student/{{$student->id}}">
+             <form method="post" action="/motors/{{$motors->id}}">
                 @method('patch')
                 @csrf
                 <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input hidden type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="id">
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{$student->nama}}">
+                    <label for="nama">Nama Kendaraan</label>
+                    <input type="text" class="form-control @error('nama_kendaraan') is-invalid @enderror" id="nama_kendaraan" placeholder="Masukkan Nama" name="nama_kendaraan" value="{{$motors->nama_kendaraan}}">
                     @error ('nama')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
                 <div class="form-group">
-                    <label for="NISN">NISN</label>
-                    <input type="number" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{$student->nisn}}">
+                    <label for="warna">Warna</label>
+                    <input type="text" class="form-control @error('warna') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="warna" value="{{$motors->warna}}">
                     @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
-                </div>
-                <div class="form-group">
-                    <label for="Alamat">Alamat</label>
-                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan Alamat" name="alamat" value="{{$student->alamat}}">
-                    @error ('alamat')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
                 <button class="btn btn-primary" type="submit">Ubah Data</button>
             </form>

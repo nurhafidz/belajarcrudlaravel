@@ -23,6 +23,14 @@ Route::group(['middleware'=>'auth'] ,function(){
     Route::get('/user','PagesController@index');
     Route::get('/user/json','PagesController@json');
 
+    Route::get('/motors', 'MotorController@index');
+    Route::get('/motors/create', 'MotorController@create');
+    Route::get('/motors/{motors}', 'MotorController@show');
+    Route::post('/motors', 'MotorController@store');
+    Route::get('/motors/{motors}/edit', 'MotorController@edit');
+    Route::patch('/motors/{motors}', 'MotorController@update');
+    Route::delete('/motors/{motors}', 'MotorController@destroy');
+
     Route::get('/student', 'StudentController@index');
     Route::get('/student/create', 'StudentController@create');
     Route::get('/student/{student}', 'StudentController@show');
