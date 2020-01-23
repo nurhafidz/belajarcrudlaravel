@@ -35,7 +35,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="col-8">
-            <h1>Edit Siswa</h1>
+            <h1>Edit Kendaraan Siswa</h1>
              <form method="post" action="/motors/{{$motors->id}}">
                 @method('patch')
                 @csrf
