@@ -44,14 +44,15 @@ class StudentController extends Controller
         $siswa->nama=$request->nama;
         $siswa->nisn=$request->nisn;
         $siswa->motors_id=$request->motors_id;
+        $siswa->platno=$request->platno;
         $siswa->alamat=$request->alamat;
         
 
         $request->validate([
             'nama'=>'required',
             'nisn'=>'required|size:5',
-            'nama'=>'required',
-            
+            'motors_id'=>'required',
+            'platno'=>'required|min:3|max:8'
         ]);
 
         $siswa->save();
@@ -102,6 +103,7 @@ class StudentController extends Controller
                 'nisn'=>$request->nisn,
                 'alamat'=>$request->alamat,
                 'motors_id'=>$request->motors_id,
+                'platno'=>$request->platno,
                 
                 
             ]);
@@ -109,6 +111,7 @@ class StudentController extends Controller
                 'nama'=>'required',
                 'nisn'=>'required|size:5',
                 'motors_id=>required',
+                'platno'=>'required|min:3|max:8'
                 
             ]);
             return redirect('/student')->with('status','Data Siswa berhasil diubah');

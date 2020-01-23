@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->char('nisn', 15);
             $table->string('alamat');
             $table->integer('motors_id');
-            $table->char('no_pol');
+            $table->char('platno', 8);
             $table->timestamps();
         });
     }

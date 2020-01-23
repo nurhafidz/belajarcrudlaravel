@@ -43,6 +43,9 @@
                 <h3 class="card-title">{{$student->nama}}</h3>
                 <h5 class="card-subtitle mb-2 text-muted">ID :{{$student->id}}</h5>
                 <h5 class="card-subtitle mb-2 text-muted">NISN :{{$student->nisn}}</h5>
+                <p class="card-subtitle mb-2 text-muted">Merk Kendaraan :{{$student->motors->nama_kendaraan}}</p>
+                <p class="card-subtitle mb-2 text-muted">No Polisi :{{$student->platno}}</p>
+                <p class="card-subtitle mb-2 text-muted">Warna Kendaraan :{{$student->motors->warna}}</p>
                 <h6 class="card-text">alamat:</h6>
                 <p class="card-text">{{$student->alamat}}</p>
                 <a href="{{$student->id}}/edit" class="btn btn-success text-light" class="card-link">Edit</a>

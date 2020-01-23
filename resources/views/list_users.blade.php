@@ -16,7 +16,7 @@
             <li class="nav-item ">
                 <a class="nav-link" href="{{url('/student')}}">Daftar Siswa</a>
                 </li>
-            <li class="nav-item">
+            <li class="nav-item active">
             <a class="nav-link " href="{{url('/user')}}">Cari Siswa</a>
             </li>
             <li class="nav-item">
@@ -52,6 +52,7 @@
                     <th class="th-sm">Name</th>
                     <th class="th-sm">NISN</th>
                     <th class="th-sm">Alamat</th>
+                    <th class="th-sm">No Polisi</th>
                     <th class="th-sm">Keterangan</th>
                 </tr>
             </thead>
@@ -77,6 +78,7 @@
                     { data: 'nama', name: 'nama' },
                     { data: 'nisn', name: 'nisn' },
                     { data: 'alamat', name: 'alamat'},
+                    { data: 'platno', name: 'platno'},
                     { data: null,
                             render: function(data){
                                 var view_button = '<a href="/student/' + data.id + '" class="btn btn-primary" role="button" aria-pressed="true">Detail</a>';

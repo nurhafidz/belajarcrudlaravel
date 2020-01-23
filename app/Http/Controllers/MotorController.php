@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Motors;
+use App\student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -61,7 +62,8 @@ class MotorController extends Controller
      */
     public function show(Motors $motors)
     {
-        return view('motors/show',['motors'=>$motors]);
+        $motor2= Student::all();
+        return view('motors/show',compact('motors','motor2'));
     }
 
     /**

@@ -49,6 +49,8 @@
                 <th scope="col">NISN</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Kendaraan</th>
+                <th scope="col">Warna Kendaraan</th>
+                <th scope="col">No Polisi</th>
                 <th scope="col">Keterangan</th>
               </tr>
             </thead>
@@ -60,6 +62,8 @@
               <td>{{$s->nisn}}</td>
               <td>{{$s->alamat}}</td>
               <td>{{$s->motors->nama_kendaraan}}</td>
+              <td>{{$s->motors->warna}}</td>
+              <td>{{$s->platno}}</td>
               <td>
                 <a href="/student/{{$s->id}}" class="btn btn-success">detail</a>
               </td>
