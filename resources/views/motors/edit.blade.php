@@ -1,6 +1,6 @@
 @extends('layout/main')
 
-@Section ('title','Edit Siswa')
+@Section ('title','Edit kendaraan Siswa')
 
 @section('nav')
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
