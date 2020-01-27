@@ -46,8 +46,10 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Warna</th>
+                <th scope="col">NISN</th>
+                <th scope="col">Nama Kendaraan</th>
+                <th scope="col">No Polisi</th>
+                <th scope="col">Warna Kendaraan</th>
                 
                 <th scope="col">Keterangan</th>
               </tr>
@@ -56,7 +58,9 @@
                 @foreach ($motors as $m)
               <tr> 
               <th scope="row">{{$loop->iteration}}</th>
+              <td>{{$m->student->nisn}}</td>
               <td>{{$m->nama_kendaraan}}</td>
+              <td>{{$m->platno}}</td>
               <td>{{$m->warna}}</td>
               
               <td>

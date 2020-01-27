@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\student;
-use App\Motors;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,6 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         $students= Student::all();
+       
         return view('student.index',compact('students'));
     }
 
@@ -27,8 +28,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $motors= motors::all();
-        return view('student.create',compact('motors'));
+        
+        return view('student.create');
         
     }
 
@@ -43,16 +44,14 @@ class StudentController extends Controller
         $siswa = new Student;
         $siswa->nama=$request->nama;
         $siswa->nisn=$request->nisn;
-        $siswa->motors_id=$request->motors_id;
-        $siswa->platno=$request->platno;
+        
         $siswa->alamat=$request->alamat;
         
 
         $request->validate([
             'nama'=>'required',
             'nisn'=>'required|size:5',
-            'motors_id'=>'required',
-            'platno'=>'required|min:3|max:8'
+            
         ]);
 
         $siswa->save();
@@ -82,9 +81,9 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        $motors= motors::all();
+       
 
-        return view('student.edit',['student'=>$student],compact('motors'));
+        return view('student.edit',['student'=>$student]);
         
     }
 
@@ -102,16 +101,13 @@ class StudentController extends Controller
                 'nama'=>$request->nama,
                 'nisn'=>$request->nisn,
                 'alamat'=>$request->alamat,
-                'motors_id'=>$request->motors_id,
-                'platno'=>$request->platno,
                 
                 
             ]);
             $request->validate([
                 'nama'=>'required',
                 'nisn'=>'required|size:5',
-                'motors_id=>required',
-                'platno'=>'required|min:3|max:8'
+                
                 
             ]);
             return redirect('/student')->with('status','Data Siswa berhasil diubah');

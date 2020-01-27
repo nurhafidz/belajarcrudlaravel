@@ -49,23 +49,7 @@
                     <input type="number" class="form-control @error('nisn') is-invalid @enderror" id="nisn" placeholder="Masukkan NISN" name="nisn" value="{{old('nisn')}}">
                     @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
                 </div>
-                <div class="form-group">
-                    <label for="motors_id">Kendaraan</label>
-                    <select name="motors_id" class="form-control @error('motors_id') is-invalid @enderror" >
-                        <option selected>Pilih Kendaraan</option>
-                        @foreach ($motors as $m)
-                        <option  value="{{$m->id}}">{{$m->nama_kendaraan}} - {{$m->warna}}</option>
-                        @endforeach
-                    </select>
-                    <a href="/motors/create">Buat Kendaraan</a>
-                    
-                    @error ('motors_id')<div class="invalin-feedback">{{ $message}}</div>@enderror 
-                </div>
-                <div class="form-group">
-                    <label for="nopol">No Polisi</label>
-                    <input type="text" class="form-control @error('platno') is-invalid @enderror" id="platno" placeholder="Masukkan NISN" name="platno" value="{{old('platno')}}">
-                    @error ('platno')<div class="invalin-feedback">{{ $message}}</div>@enderror 
-                </div>
+               
                 <div class="form-group">
                     <label for="Alamat">Alamat</label>
                     <textarea type="text" class="form-control " id="alamat" placeholder="Masukkan Alamat" name="alamat"></textarea>

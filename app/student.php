@@ -9,6 +9,6 @@ class student extends Model
     
     public function motors()
     {
-        return $this->belongsTo(Motors::class);
+        return $this->hasMany(Motors::class);
     }
 }

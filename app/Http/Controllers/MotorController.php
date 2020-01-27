@@ -27,7 +27,8 @@ class MotorController extends Controller
      */
     public function create()
     {
-        return view('motors.create');
+        $student= Student::all();
+        return view('motors.create',compact('student'));
     }
 
     /**
@@ -40,10 +41,15 @@ class MotorController extends Controller
     {
         $motors = new Motors;
         $motors->nama_kendaraan=$request->nama_kendaraan;
+        $motors->student_id=$request->student_id;
         $motors->warna=$request->warna;
+        $motors->platno=$request->platno;
+        
 
         $request->validate([
             'nama_kendaraan'=>'required',
+            'student_id'=>'required',
+            'platno'=>'required|min:3|max:8',
             'warna'=>'required',
             
         ]);
@@ -62,8 +68,8 @@ class MotorController extends Controller
      */
     public function show(Motors $motors)
     {
-        $motor2= Student::all();
-        return view('motors/show',compact('motors','motor2'));
+        
+        return view('motors/show',compact('motors'));
     }
 
     /**
@@ -74,7 +80,8 @@ class MotorController extends Controller
      */
     public function edit(Motors $motors)
     {
-        return view('motors.edit',['motors'=>$motors]);
+        $student= Student::all();
+        return view('motors.edit',['motors'=>$motors],compact('student'));
     }
 
     /**
@@ -89,6 +96,8 @@ class MotorController extends Controller
         Motors::where('id',$motors->id)
             ->update([
                 'nama_kendaraan'=>$request->nama_kendaraan,
+                'student_id'=>$request->student_id,
+                'platno'=>$request->platno,
                 'warna'=>$request->warna,
                 
                 
@@ -96,6 +105,8 @@ class MotorController extends Controller
             ]);
             $request->validate([
                 'nama_kendaraan'=>'required',
+                'student_id'=>'required',
+                 'platno'=>'required|min:3|max:8',
                 'warna'=>'required',
                 
             ]);

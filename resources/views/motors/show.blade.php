@@ -35,13 +35,21 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1>Detail Kendaraan Siswa</h1>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              
-                <h3 class="card-title">{{$motors->nama_kendaraan}}</h3>
-                <h5 class="card-subtitle mb-2 text-muted">ID Kendraan :{{$motors->id}}</h5>
-                <h5 class="card-subtitle mb-2 text-muted">Warna Kendraan :{{$motors->warna}}</h5>
+            <h1 class="text-center">Detail Kendaraan Siswa</h1>
+            <hr>
+        <div class="text-center">
+            <div class="row">
+                <div class="col-md-5 col-sm-6 mb-3">
+                        <h3 class="card-title">{{$motors->nama_kendaraan}}</h3>
+                        <h5 class="card-subtitle mb-2 text-muted">ID Kendraan :{{$motors->id}}</h5>
+                        <h5 class="card-subtitle mb-2 text-muted">Warna Kendraan :{{$motors->warna}}</h5>
+                </div>
+                <div class="col-md-6 col-sm-6 mb-3">
+                    <h3 class="card-title">Pemilik Kendaraan</h3>
+                    <h5 class="card-subtitle mb-2 text-muted">NISN Siswa :{{$motors->student->nisn}}</h5>
+                    <h5 class="card-subtitle mb-2 text-muted">Nama Siswa :{{$motors->student->nama}}</h5>
+                 </div>
+            </div>
                 <a href="{{$motors->id}}/edit" class="btn btn-success text-light" class="card-link">Edit</a>
                 <div id='modal' class="d-inline">
                     <button class="btn btn-danger " data-toggle="modal" data-target="#exampleModal"  class="card-link">Hapus</button>
@@ -69,10 +77,11 @@
                             </div>
                         </div>
                         </div>
-                    </div>
+                    
                 </div>
                 
             </div>
+            
           </div>
     </div>
     

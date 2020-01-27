@@ -45,9 +45,25 @@
                     @error ('nama_kendaraan')<div class="invalin-feedback">{{ $message}}</div>@enderror
                 </div>
                 <div class="form-group">
+                    <label for="nama">Pilih Siswa</label>
+                    <select name="student_id" class="form-control @error('student_id') is-invalid @enderror">
+                        <option selected value="">Pilih</option>
+                        @foreach ($student as $s)
+                        <option  value="{{$s->id}}">{{$s->nisn}} - {{$s->nama}}</option>
+                        @endforeach
+                      </select>
+                      @error ('student_id')<div class="invalin-feedback">{{ $message}}</div>@enderror
+                </div>
+                
+                <div class="form-group">
+                    <label for="platno">No Polisi</label>
+                    <input type="text" class="form-control @error('platno') is-invalid @enderror" id="paltno" placeholder="Masukkan No Polisi" name="platno" value="{{old('platno')}}">
+                    @error ('platno')<div class="invalin-feedback">{{ $message}}</div>@enderror 
+                </div>
+                <div class="form-group">
                     <label for="NISN">Warna Kendaraan</label>
                     <input type="text" class="form-control @error('warna') is-invalid @enderror" id="warna" placeholder="Masukkan warna" name="warna" value="{{old('warna')}}">
-                    @error ('nisn')<div class="invalin-feedback">{{ $message}}</div>@enderror 
+                    @error ('warna')<div class="invalin-feedback">{{ $message}}</div>@enderror 
                 </div>
                 <button class="btn btn-primary" type="submit">Simpan</button>
             </form>
